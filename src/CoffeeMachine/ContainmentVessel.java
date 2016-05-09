@@ -7,18 +7,32 @@ import CoffeeMachine.IHotWaterSource.IWaterFlowControl;
 public class ContainmentVessel implements IContainmentVessel {
 
     private IWaterFlowControl flowControl;
-    public boolean isVesselInPlace = true;
+    public boolean isVesselInPlace;
+    public boolean isFull;
 
     public ContainmentVessel(IWaterFlowControl flowControl) {
         this.flowControl = flowControl;
+        isVesselInPlace = true;
+        isFull = false;
     }
 
     @Override
     public void poll() {
-        if (isVesselInPlace)
+
+        if (isFull()) {
+            flowControl.closeWaterFlow();
+            return;
+        }
+
+        if (isVesselInPlace) {
             insertVessel();
-        else
+            flowControl.openWaterFlow();
+        } else {
             removeVessel();
+            flowControl.closeWaterFlow();
+        }
+
+
     }
 
 
@@ -27,14 +41,18 @@ public class ContainmentVessel implements IContainmentVessel {
         return this.isVesselInPlace;
     }
 
+    @Override
+    public boolean isFull() {
+        return isFull;
+    }
+
 
     protected void removeVessel() {
         isVesselInPlace = false;
-        flowControl.closeWaterFlow();
     }
 
     protected void insertVessel() {
         isVesselInPlace = true;
-        flowControl.openWaterFlow();
+
     }
 }

@@ -20,4 +20,14 @@ public class ContainmentVesselMoc extends ContainmentVessel {
         this.insertVessel();
         poll();
     }
+
+    public void setFull() {
+        this.isFull = true;
+        poll();
+    }
+
+    public void setEmpty() {
+        this.isFull = false;
+        poll();
+    }
 }

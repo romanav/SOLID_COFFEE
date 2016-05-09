@@ -23,6 +23,7 @@ public class VesselTests {
     public void initialStatus() {
         assertEquals(vessel.isReady(), true);
         assertEquals(boiler.isWaterFlowing(), true);
+        assertEquals(vessel.isFull(), false);
     }
 
     @Test
@@ -41,6 +42,21 @@ public class VesselTests {
 
         vessel.putIn();
         assertEquals(boiler.isWaterFlowing(), true);
+    }
+
+    @Test
+    public void isFullTest() {
+        vessel.setFull();
+        assertEquals(boiler.isWaterFlowing(), false);
+
+        vessel.setEmpty();
+        assertEquals(boiler.isWaterFlowing(), true);
+
+        vessel.setFull();
+        vessel.poll();
+        assertEquals(boiler.isWaterFlowing(), false);
+
+
     }
 
 }
