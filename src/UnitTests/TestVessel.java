@@ -8,7 +8,7 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
-public class VesselTests {
+public class TestVessel {
 
     IWaterFlowControl boiler;
     ContainmentVesselMoc vessel;
@@ -55,7 +55,6 @@ public class VesselTests {
         vessel.setFull();
         vessel.poll();
         assertEquals(boiler.isWaterFlowing(), false);
-
 
     }
 
