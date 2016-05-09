@@ -5,39 +5,39 @@ import CoffeeMachine.IHotWaterSource.IHotWaterSource;
 public class SimpleBoiler implements IHotWaterSource {
 
 
-    private boolean isBioling = false;
+    private boolean isOn = false;
     private boolean isWaterFlowOpen = false;
     protected int temperature;
     private int minTemperature = 0;
     private int maxTemperature = 100;
+    private boolean isBoiling = false;
 
 
     public SimpleBoiler() {
-        isBioling = false;
+        isOn = false;
         temperature = 21;
     }
 
     @Override
     public void poll() {
-        if (temperature >= 90) {
-            stopBoiling();
-        }
-    }
-
-
-    @Override
-    public void startBoiling() {
-        isBioling = true;
+        setBoilingState();
     }
 
     @Override
-    public void stopBoiling() {
-        isBioling = false;
+    public void turnOn() {
+        isOn = true;
+        setBoilingState();
+    }
+
+    @Override
+    public void turnOff() {
+        isOn = false;
+        setBoilingState();
     }
 
     @Override
     public boolean isBoiling() {
-        return isBioling;
+        return isBoiling;
     }
 
     @Override
@@ -90,4 +90,24 @@ public class SimpleBoiler implements IHotWaterSource {
     }
 
 
+    private void stopBoiling() {
+        isBoiling = false;
+    }
+
+    private void startBoiling() {
+        isBoiling = true;
+    }
+
+    private void setBoilingState() {
+        if (isOn) {
+            if (temperature > maxTemperature) {
+                stopBoiling();
+            }
+
+            if (temperature < minTemperature) {
+                startBoiling();
+            }
+        } else
+            stopBoiling();
+    }
 }

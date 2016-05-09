@@ -26,27 +26,54 @@ public class TestBoiler {
 
     @Test
     public void boilingStatus() {
+        setLimitTemperatures();
 
-        boiler.startBoiling();
+        boiler.turnOn();
         assertEquals(boiler.isBoiling(), true);
 
-        boiler.stopBoiling();
+        boiler.turnOff();
         assertEquals(boiler.isBoiling(), false);
-
-        boiler.setTemperature(91);
-        assertEquals(boiler.isBoiling(), false);
-
     }
 
     @Test
     public void getSetTemperatures() {
-
-
-        boiler.setMinimumTemperature(80);
-        boiler.setMaximumTemperature(90);
+        setLimitTemperatures();
 
         assertEquals(boiler.getMinimumTemperature(), 80);
         assertEquals(boiler.getMaximumTemperature(), 90);
+    }
+
+    @Test
+    public void startStopBoiler() {
+        setLimitTemperatures();
+        boiler.turnOn();
+        assertTemperatureBoilingStatus(70, true);
+        boiler.turnOff();
+        assertTemperatureBoilingStatus(70, false);
+        boiler.turnOn();
+        assertTemperatureBoilingStatus(70, true);
+    }
+
+    @Test
+    public void stopBoilingOnTemperature() {
+        setLimitTemperatures();
+        boiler.turnOn();
+
+        assertTemperatureBoilingStatus(70, true);
+        assertTemperatureBoilingStatus(80, true);
+        assertTemperatureBoilingStatus(91, false);
+        assertTemperatureBoilingStatus(85, false);
+        assertTemperatureBoilingStatus(70, true);
+    }
+
+    private void assertTemperatureBoilingStatus(int temperature, boolean isBoiling) {
+        boiler.setTemperature(temperature);
+        assertEquals(boiler.isBoiling(), isBoiling);
+    }
+
+    private void setLimitTemperatures() {
+        boiler.setMinimumTemperature(80);
+        boiler.setMaximumTemperature(90);
     }
 
 

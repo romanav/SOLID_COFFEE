@@ -2,9 +2,9 @@ package CoffeeMachine.IHotWaterSource;
 
 
 public interface IHotWaterSourceTemperatureControl {
-    void startBoiling();
+    void turnOn();
 
-    void stopBoiling();
+    void turnOff();
 
     boolean isBoiling();
 
