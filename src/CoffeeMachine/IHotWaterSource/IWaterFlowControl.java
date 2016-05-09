@@ -1,7 +1,7 @@
 package CoffeeMachine.IHotWaterSource;
 
 
-public interface IHotWaterSourceFlowControl {
+public interface IWaterFlowControl {
     void openWaterFlow();
 
     void closeWaterFlow();

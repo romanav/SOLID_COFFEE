@@ -5,17 +5,17 @@ import CoffeeMachine.IHotWaterSource.IHotWaterSource;
 public class SimpleBoiler implements IHotWaterSource {
 
 
+    private boolean isBioling = false;
+    private boolean isWaterFlowOpen = false;
 
-    private boolean isBiolingStatus;
 
-    public SimpleBoiler(){
-        isBiolingStatus = false;
+    public SimpleBoiler() {
+        isBioling = false;
     }
 
     @Override
     public void startBoiling() {
-        isBiolingStatus = true;
-
+        isBioling = true;
     }
 
     @Override
@@ -25,7 +25,7 @@ public class SimpleBoiler implements IHotWaterSource {
 
     @Override
     public boolean isBoiling() {
-        return isBiolingStatus;
+        return isBioling;
     }
 
     @Override
@@ -41,18 +41,18 @@ public class SimpleBoiler implements IHotWaterSource {
 
     @Override
     public void openWaterFlow() {
-
+        isWaterFlowOpen = true;
     }
 
     @Override
     public void closeWaterFlow() {
-
+        isWaterFlowOpen = false;
     }
 
 
     @Override
     public boolean isWaterFlowing() {
-        return false;
+        return isWaterFlowOpen;
     }
 
     @Override

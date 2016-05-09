@@ -1,8 +1,8 @@
 package CoffeeMachine.IContainmentVessel;
 
 public interface IContainmentVessel {
-    void startFlow();
-    void stopFlow();
+
+    boolean isReady();
 
     void poll();
 }
