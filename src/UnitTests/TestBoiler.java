@@ -3,16 +3,25 @@ package UnitTests;
 import org.junit.Before;
 import org.junit.Test;
 
+
 import static org.junit.Assert.assertEquals;
 
 public class TestBoiler {
 
-    private SimpleBoilerMoc boiler = new SimpleBoilerMoc();
+    private SimpleBoilerMoc boiler;
 
 
     @Before
     public void init() {
+        boiler = new SimpleBoilerMoc();
+
+    }
+
+    @Test()
+    public void init_state() {
         assertEquals(boiler.isBoiling(), false);
+        assertEquals(boiler.getMinimumTemperature(), 0);
+        assertEquals(boiler.getMaximumTemperature(), 100);
     }
 
     @Test
@@ -30,9 +39,8 @@ public class TestBoiler {
     }
 
     @Test
-    public void getTemperatures(){
-        assertEquals(boiler.getMinimumTemperature(), 0);
-        assertEquals(boiler.getMaximumTemperature(), 100);
+    public void getSetTemperatures() {
+
 
         boiler.setMinimumTemperature(80);
         boiler.setMaximumTemperature(90);
