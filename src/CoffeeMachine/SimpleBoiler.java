@@ -1,6 +1,6 @@
 package CoffeeMachine;
 
-import CoffeeMachine.IHotWaterSource.IHotWaterSource;
+import CoffeeMachine.Interfaces.IHotWaterSource.IHotWaterSource;
 
 public class SimpleBoiler implements IHotWaterSource {
 

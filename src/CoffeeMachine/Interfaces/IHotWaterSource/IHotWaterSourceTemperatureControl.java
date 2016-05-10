@@ -1,10 +1,8 @@
-package CoffeeMachine.IHotWaterSource;
+package CoffeeMachine.Interfaces.IHotWaterSource;
 
 
 public interface IHotWaterSourceTemperatureControl {
-    void turnOn();
 
-    void turnOff();
 
     boolean isBoiling();
 

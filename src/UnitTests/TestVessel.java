@@ -1,7 +1,7 @@
 package UnitTests;
 
-import CoffeeMachine.ContainmentVessel;
-import CoffeeMachine.IHotWaterSource.IWaterFlowControl;
+
+import CoffeeMachine.Interfaces.IHotWaterSource.IWaterFlowControl;
 import CoffeeMachine.SimpleBoiler;
 import org.junit.Before;
 import org.junit.Test;
@@ -53,9 +53,7 @@ public class TestVessel {
         assertEquals(boiler.isWaterFlowing(), true);
 
         vessel.setFull();
-        vessel.poll();
         assertEquals(boiler.isWaterFlowing(), false);
-
     }
 
 }

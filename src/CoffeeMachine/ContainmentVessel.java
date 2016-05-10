@@ -1,7 +1,7 @@
 package CoffeeMachine;
 
-import CoffeeMachine.IContainmentVessel.IContainmentVessel;
-import CoffeeMachine.IHotWaterSource.IWaterFlowControl;
+import CoffeeMachine.Interfaces.IContainmentVessel.IContainmentVessel;
+import CoffeeMachine.Interfaces.IHotWaterSource.IWaterFlowControl;
 
 
 public class ContainmentVessel implements IContainmentVessel {
