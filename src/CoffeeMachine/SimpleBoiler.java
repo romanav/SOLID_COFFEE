@@ -36,6 +36,11 @@ public class SimpleBoiler implements IHotWaterSource {
     }
 
     @Override
+    public boolean isOn() {
+        return isOn;
+    }
+
+    @Override
     public boolean isBoiling() {
         return isBoiling;
     }

@@ -14,7 +14,6 @@ public class TestBoiler {
     @Before
     public void init() {
         boiler = new SimpleBoilerMoc();
-
     }
 
     @Test()
@@ -22,6 +21,17 @@ public class TestBoiler {
         assertEquals(boiler.isBoiling(), false);
         assertEquals(boiler.getMinimumTemperature(), 0);
         assertEquals(boiler.getMaximumTemperature(), 100);
+        assertEquals(boiler.isOn(), false);
+    }
+
+    @Test
+    public void testOnOff() {
+
+        boiler.turnOn();
+        assertEquals(boiler.isOn(), true);
+
+        boiler.turnOff();
+        assertEquals(boiler.isOn(), false);
     }
 
     @Test
