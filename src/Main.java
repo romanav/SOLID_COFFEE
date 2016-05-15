@@ -7,16 +7,20 @@ public class Main {
 
         final SwingGui userDialog = new SwingGui();
         final VesselUi vesselDialog = new VesselUi();
+        final BoilerUI boilerDialog = new BoilerUI();
 
-        userDialog.pack();
-        vesselDialog.pack();
+        configureDialog(userDialog);
+        configureDialog(vesselDialog);
+        configureDialog(boilerDialog);
 
-        userDialog.setModal(true);
-        vesselDialog.setModal(true);
-
+        runInAnotherThread(boilerDialog);
         runInAnotherThread(userDialog);
         runInAnotherThread(vesselDialog);
+    }
 
+    private static void configureDialog(JDialog userDialog) {
+        userDialog.pack();
+        userDialog.setModal(true);
     }
 
     private static void runInAnotherThread(final JDialog dialog) {
