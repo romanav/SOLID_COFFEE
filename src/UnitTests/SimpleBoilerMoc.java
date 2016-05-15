@@ -1,10 +1,10 @@
 package UnitTests;
 
 
-import CoffeeMachine.SimpleBoiler;
+import CoffeeMachine.BoilerBase;
 
 
-public class SimpleBoilerMoc extends SimpleBoiler {
+public class SimpleBoilerMoc extends BoilerBase {
 
 
     public void setTemperature(int temperature) {

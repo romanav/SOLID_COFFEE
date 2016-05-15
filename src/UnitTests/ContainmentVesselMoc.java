@@ -1,9 +1,9 @@
 package UnitTests;
 
-import CoffeeMachine.ContainmentVessel;
+import CoffeeMachine.ContainmentBase;
 import CoffeeMachine.Interfaces.IHotWaterSource.IWaterFlowControl;
 
-public class ContainmentVesselMoc extends ContainmentVessel {
+public class ContainmentVesselMoc extends ContainmentBase {
 
     public ContainmentVesselMoc(IWaterFlowControl flowControl) {
         super(flowControl);

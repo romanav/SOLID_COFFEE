@@ -8,12 +8,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class SimpleUI implements IUserInterface {
+public class UIBase implements IUserInterface {
 
 
     private List<ISwitchable> components;
 
-    public SimpleUI() {
+    public UIBase() {
         components = new ArrayList<>();
     }
 

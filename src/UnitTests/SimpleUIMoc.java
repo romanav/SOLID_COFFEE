@@ -1,8 +1,8 @@
 package UnitTests;
 
-import CoffeeMachine.SimpleUI;
+import CoffeeMachine.UIBase;
 
-public class SimpleUIMoc extends SimpleUI {
+public class SimpleUIMoc extends UIBase {
     public SimpleUIMoc() {
     }
 

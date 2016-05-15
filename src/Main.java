@@ -1,21 +1,24 @@
 import javax.swing.*;
-import java.awt.*;
+
 
 public class Main {
 
     public static void main(String[] args) {
 
-        final SwingGui userDialog = new SwingGui();
-        final VesselUi vesselDialog = new VesselUi();
-        final BoilerUI boilerDialog = new BoilerUI();
+        UiDemo demo = new UiDemo();
 
-        configureDialog(userDialog);
-        configureDialog(vesselDialog);
-        configureDialog(boilerDialog);
 
-        runInAnotherThread(boilerDialog);
-        runInAnotherThread(userDialog);
-        runInAnotherThread(vesselDialog);
+//        final SwingGui userDialog = new SwingGui();
+//        final VesselUi vesselDialog = new VesselUi();
+//        final BoilerUI boilerDialog = new BoilerUI();
+//
+//        configureDialog(userDialog);
+//        configureDialog(vesselDialog);
+//        configureDialog(boilerDialog);
+//
+//        runInAnotherThread(boilerDialog);
+//        runInAnotherThread(userDialog);
+//        runInAnotherThread(vesselDialog);
     }
 
     private static void configureDialog(JDialog userDialog) {

@@ -2,7 +2,7 @@ package CoffeeMachine;
 
 import CoffeeMachine.Interfaces.IHotWaterSource.IHotWaterSource;
 
-public class SimpleBoiler implements IHotWaterSource {
+public class BoilerBase implements IHotWaterSource {
 
 
     private boolean isOn = false;
@@ -13,7 +13,7 @@ public class SimpleBoiler implements IHotWaterSource {
     private boolean isBoiling = false;
 
 
-    public SimpleBoiler() {
+    public BoilerBase() {
         isOn = false;
         temperature = 21;
     }

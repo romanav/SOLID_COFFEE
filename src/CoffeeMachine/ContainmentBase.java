@@ -4,14 +4,14 @@ import CoffeeMachine.Interfaces.IContainmentVessel.IContainmentVessel;
 import CoffeeMachine.Interfaces.IHotWaterSource.IWaterFlowControl;
 
 
-public class ContainmentVessel implements IContainmentVessel {
+public class ContainmentBase implements IContainmentVessel {
 
     private IWaterFlowControl flowControl;
     public boolean isVesselInPlace;
     public boolean isFull;
     public boolean isOnFlag;
 
-    public ContainmentVessel(IWaterFlowControl flowControl) {
+    public ContainmentBase(IWaterFlowControl flowControl) {
         this.flowControl = flowControl;
         isVesselInPlace = true;
         isFull = false;

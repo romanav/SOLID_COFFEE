@@ -3,7 +3,7 @@ package UnitTests;
 
 import CoffeeMachine.Interfaces.IHotWaterSource.IWaterFlowControl;
 import CoffeeMachine.Interfaces.ISwitchable;
-import CoffeeMachine.SimpleBoiler;
+import CoffeeMachine.BoilerBase;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -16,7 +16,7 @@ public class TestVessel {
 
     @Before
     public void init() {
-        this.boiler = new SimpleBoiler();
+        this.boiler = new BoilerBase();
         this.vessel = new ContainmentVesselMoc(boiler);
     }
 
