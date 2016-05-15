@@ -1,23 +1,20 @@
 import javax.swing.*;
 import java.awt.event.*;
 
-public class SwingGui extends JDialog {
+public class SwingGui extends JDialog implements ActionListener {
     private JPanel contentPane;
-    private JButton buttonOK;
+
     private JButton buttonCancel;
-    private JRadioButton trunOnRadioButton;
+    private JRadioButton turnOnRadioButton;
     private JRadioButton turnOffRadioButton;
+    private JFormattedTextField statusField;
 
     public SwingGui() {
+
+
         setContentPane(contentPane);
         setModal(true);
-        getRootPane().setDefaultButton(buttonOK);
 
-        buttonOK.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                onOK();
-            }
-        });
 
         buttonCancel.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -39,12 +36,27 @@ public class SwingGui extends JDialog {
                 onCancel();
             }
         }, KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
+
+
+        configureListeners();
+        configureRadioButtons();
+        actionPerformed(null);
+
     }
 
-    private void onOK() {
-// add your code here
-        dispose();
+    private void configureRadioButtons() {
+        ButtonGroup group = new ButtonGroup();
+        group.add(turnOffRadioButton);
+        group.add(turnOnRadioButton);
+        turnOffRadioButton.setSelected(true);
     }
+
+
+    private void configureListeners() {
+        turnOnRadioButton.addActionListener(this);
+        turnOffRadioButton.addActionListener(this);
+    }
+
 
     private void onCancel() {
 // add your code here if necessary
@@ -56,5 +68,14 @@ public class SwingGui extends JDialog {
         dialog.pack();
         dialog.setVisible(true);
         System.exit(0);
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent actionEvent) {
+        if (turnOnRadioButton.isSelected())
+            statusField.setValue("Working...");
+        else
+            statusField.setValue("Switched Off...");
+
     }
 }
