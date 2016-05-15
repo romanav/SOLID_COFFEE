@@ -9,11 +9,13 @@ public class ContainmentVessel implements IContainmentVessel {
     private IWaterFlowControl flowControl;
     public boolean isVesselInPlace;
     public boolean isFull;
+    public boolean isOnFlag;
 
     public ContainmentVessel(IWaterFlowControl flowControl) {
         this.flowControl = flowControl;
         isVesselInPlace = true;
         isFull = false;
+        isOnFlag = false;
     }
 
     @Override
@@ -54,5 +56,20 @@ public class ContainmentVessel implements IContainmentVessel {
     protected void insertVessel() {
         isVesselInPlace = true;
 
+    }
+
+    @Override
+    public void turnOn() {
+        isOnFlag = true;
+    }
+
+    @Override
+    public void turnOff() {
+        isOnFlag = false;
+    }
+
+    @Override
+    public boolean isOn() {
+        return isOnFlag;
     }
 }

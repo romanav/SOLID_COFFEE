@@ -2,6 +2,7 @@ package UnitTests;
 
 
 import CoffeeMachine.Interfaces.IHotWaterSource.IWaterFlowControl;
+import CoffeeMachine.Interfaces.ISwitchable;
 import CoffeeMachine.SimpleBoiler;
 import org.junit.Before;
 import org.junit.Test;
@@ -24,6 +25,7 @@ public class TestVessel {
         assertEquals(vessel.isReady(), true);
         assertEquals(boiler.isWaterFlowing(), true);
         assertEquals(vessel.isFull(), false);
+        assertEquals(vessel.isOn(), false);
     }
 
     @Test
@@ -54,6 +56,17 @@ public class TestVessel {
 
         vessel.setFull();
         assertEquals(boiler.isWaterFlowing(), false);
+    }
+
+    @Test
+    public void turnOnTurnOf() {
+        ISwitchable v = vessel;
+
+        v.turnOn();
+        assertEquals(v.isOn(), true);
+
+        v.turnOff();
+        assertEquals(v.isOn(), false);
     }
 
 }
