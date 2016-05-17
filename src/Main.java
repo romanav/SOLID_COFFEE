@@ -6,6 +6,10 @@ public class Main {
     public static void main(String[] args) {
 
         UiDemo demo = new UiDemo();
+        BoilerUI boiler = new BoilerUI();
+
+        boiler.showUI();
+        demo.showUI();
 
 
 //        final SwingGui userDialog = new SwingGui();
@@ -21,18 +25,17 @@ public class Main {
 //        runInAnotherThread(vesselDialog);
     }
 
-    private static void configureDialog(JDialog userDialog) {
-        userDialog.pack();
-        userDialog.setModal(true);
-    }
-
-    private static void runInAnotherThread(final JDialog dialog) {
-        Runnable dialogDisplayThread = new Runnable() {
-            public void run() {
-                dialog.setVisible(true);
-            }
-        };
-
-        new Thread(dialogDisplayThread).start();
-    }
+//    private static void configureDialog(JDialog userDialog) {
+//        userDialog.pack();
+//        userDialog.setModal(true);
+//    }
+//
+//    private static void runInAnotherThread(final JDialog dialog) {
+//        Runnable dialogDisplayThread = new Runnable() {
+//            public void run() {
+//                dialog.setVisible(true);
+//            }
+//        };
+//        new Thread(dialogDisplayThread).start();
+//    }
 }

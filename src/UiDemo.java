@@ -12,12 +12,12 @@ public class UiDemo extends UIBase implements ActionListener {
     private JRadioButton turnOnRadioButton;
     private JRadioButton turnOffRadioButton;
     private JFormattedTextField statusField;
-    private JDialog dialog;
+    private MultiWindowDialog dialog;
 
     public UiDemo() {
 
-        dialog = new JDialog();
-        contentPane = new JPanel(new GridLayout(0,1));
+        dialog = new MultiWindowDialog();
+        contentPane = new JPanel(new GridLayout(0, 1));
 
         buttonCancel = new JButton("Exit");
         buttonCancel.addActionListener(new ActionListener() {
@@ -35,7 +35,6 @@ public class UiDemo extends UIBase implements ActionListener {
         configureRadioButtons();
         configureListeners();
 
-        showDialog(dialog);
     }
 
 
@@ -52,10 +51,6 @@ public class UiDemo extends UIBase implements ActionListener {
             statusField.setValue("Switched Off...");
     }
 
-    private void showDialog(JDialog dialog) {
-        dialog.pack();
-        dialog.setVisible(true);
-    }
 
     private void addObjectsToPane() {
         contentPane.add(turnOnRadioButton);
@@ -70,6 +65,11 @@ public class UiDemo extends UIBase implements ActionListener {
         group.add(turnOffRadioButton);
         group.add(turnOnRadioButton);
         turnOffRadioButton.setSelected(true);
+    }
+
+
+    public void showUI() {
+        dialog.showDialog();
     }
 
 }
