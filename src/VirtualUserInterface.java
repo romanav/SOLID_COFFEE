@@ -5,7 +5,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class UiDemo extends UIBase implements ActionListener {
+public class VirtualUserInterface extends UIBase implements ActionListener {
 
     private JPanel contentPane;
     private JButton buttonCancel;
@@ -14,7 +14,7 @@ public class UiDemo extends UIBase implements ActionListener {
     private JFormattedTextField statusField;
     private MultiWindowDialog dialog;
 
-    public UiDemo() {
+    public VirtualUserInterface() {
 
         dialog = new MultiWindowDialog();
         contentPane = new JPanel(new GridLayout(0, 1));

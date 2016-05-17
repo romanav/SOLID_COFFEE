@@ -1,20 +1,19 @@
-import javax.swing.*;
-
-
 public class Main {
 
     public static void main(String[] args) {
 
-        UiDemo demo = new UiDemo();
-        BoilerUI boiler = new BoilerUI();
+        VirtualUserInterface demo = new VirtualUserInterface();
+        VirtualBoiler boiler = new VirtualBoiler();
+        VirtualVessel vessel = new VirtualVessel();
 
         boiler.showUI();
         demo.showUI();
+        vessel.showUI();
 
 
 //        final SwingGui userDialog = new SwingGui();
 //        final VesselUi vesselDialog = new VesselUi();
-//        final BoilerUI boilerDialog = new BoilerUI();
+//        final VirtualBoiler boilerDialog = new VirtualBoiler();
 //
 //        configureDialog(userDialog);
 //        configureDialog(vesselDialog);

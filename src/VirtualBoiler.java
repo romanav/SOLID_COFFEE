@@ -5,14 +5,14 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class BoilerUI extends UIBase implements ActionListener {
+public class VirtualBoiler extends UIBase implements ActionListener {
 
 
     private JPanel contentPane;
     private JButton buttonCancel;
     private MultiWindowDialog dialog;
 
-    public BoilerUI() {
+    public VirtualBoiler() {
         dialog = new MultiWindowDialog();
         contentPane = new JPanel(new GridLayout(0, 1));
 
