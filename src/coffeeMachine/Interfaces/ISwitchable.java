@@ -1,4 +1,4 @@
-package CoffeeMachine.Interfaces;
+package coffeeMachine.Interfaces;
 
 public interface ISwitchable {
     void turnOn();

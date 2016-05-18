@@ -1,9 +1,12 @@
-import CoffeeMachine.UIBase;
+import coffeeMachine.UIBase;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.IOException;
 
 public class VirtualUserInterface extends UIBase implements ActionListener {
 
@@ -31,6 +34,20 @@ public class VirtualUserInterface extends UIBase implements ActionListener {
 
         statusField = new JFormattedTextField();
 
+        ImageIcon icon = new ImageIcon("/home/romanav/IdeaProjects/Coffee Machine/images/control.jpg");
+        JLabel label = new JLabel(icon);
+
+
+        contentPane.add(label);
+
+        Box box = Box.createVerticalBox();
+        box.add(turnOnRadioButton);
+        box.add(turnOffRadioButton);
+        box.add(statusField);
+        box.add(buttonCancel);
+
+        contentPane.add(box);
+
         addObjectsToPane();
         configureRadioButtons();
         configureListeners();
@@ -53,10 +70,8 @@ public class VirtualUserInterface extends UIBase implements ActionListener {
 
 
     private void addObjectsToPane() {
-        contentPane.add(turnOnRadioButton);
-        contentPane.add(turnOffRadioButton);
-        contentPane.add(statusField);
-        contentPane.add(buttonCancel);
+
+
         dialog.add(contentPane);
     }
 

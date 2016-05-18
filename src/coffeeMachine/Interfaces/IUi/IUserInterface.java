@@ -1,7 +1,7 @@
-package CoffeeMachine.Interfaces.IUi;
+package coffeeMachine.Interfaces.IUi;
 
-import CoffeeMachine.Interfaces.IPollable;
-import CoffeeMachine.Interfaces.ISwitchable;
+import coffeeMachine.Interfaces.IPollable;
+import coffeeMachine.Interfaces.ISwitchable;
 import java.util.List;
 
 

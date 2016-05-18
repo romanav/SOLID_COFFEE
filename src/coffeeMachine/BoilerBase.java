@@ -1,6 +1,6 @@
-package CoffeeMachine;
+package coffeeMachine;
 
-import CoffeeMachine.Interfaces.IHotWaterSource.IHotWaterSource;
+import coffeeMachine.Interfaces.IHotWaterSource.IHotWaterSource;
 
 public class BoilerBase implements IHotWaterSource {
 

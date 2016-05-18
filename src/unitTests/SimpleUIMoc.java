@@ -1,6 +1,6 @@
-package UnitTests;
+package unitTests;
 
-import CoffeeMachine.UIBase;
+import coffeeMachine.UIBase;
 
 public class SimpleUIMoc extends UIBase {
     public SimpleUIMoc() {

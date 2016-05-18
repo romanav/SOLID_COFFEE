@@ -1,8 +1,8 @@
-package CoffeeMachine;
+package coffeeMachine;
 
 
-import CoffeeMachine.Interfaces.ISwitchable;
-import CoffeeMachine.Interfaces.IUi.IUserInterface;
+import coffeeMachine.Interfaces.ISwitchable;
+import coffeeMachine.Interfaces.IUi.IUserInterface;
 
 import java.util.ArrayList;
 import java.util.List;

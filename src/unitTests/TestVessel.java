@@ -1,9 +1,9 @@
-package UnitTests;
+package unitTests;
 
 
-import CoffeeMachine.Interfaces.IHotWaterSource.IWaterFlowControl;
-import CoffeeMachine.Interfaces.ISwitchable;
-import CoffeeMachine.BoilerBase;
+import coffeeMachine.Interfaces.IHotWaterSource.IWaterFlowControl;
+import coffeeMachine.Interfaces.ISwitchable;
+import coffeeMachine.BoilerBase;
 import org.junit.Before;
 import org.junit.Test;
 

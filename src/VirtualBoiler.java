@@ -1,4 +1,4 @@
-import CoffeeMachine.UIBase;
+import coffeeMachine.UIBase;
 
 import javax.swing.*;
 import java.awt.*;

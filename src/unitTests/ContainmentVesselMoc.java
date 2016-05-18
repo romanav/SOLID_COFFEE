@@ -1,7 +1,7 @@
-package UnitTests;
+package unitTests;
 
-import CoffeeMachine.ContainmentBase;
-import CoffeeMachine.Interfaces.IHotWaterSource.IWaterFlowControl;
+import coffeeMachine.ContainmentBase;
+import coffeeMachine.Interfaces.IHotWaterSource.IWaterFlowControl;
 
 public class ContainmentVesselMoc extends ContainmentBase {
 

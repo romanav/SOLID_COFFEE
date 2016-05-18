@@ -1,4 +1,4 @@
-package CoffeeMachine.Interfaces.IHotWaterSource;
+package coffeeMachine.Interfaces.IHotWaterSource;
 
 
 public interface IHotWaterSourceTemperatureControl {

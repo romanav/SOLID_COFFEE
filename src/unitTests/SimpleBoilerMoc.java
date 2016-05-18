@@ -1,7 +1,7 @@
-package UnitTests;
+package unitTests;
 
 
-import CoffeeMachine.BoilerBase;
+import coffeeMachine.BoilerBase;
 
 
 public class SimpleBoilerMoc extends BoilerBase {
