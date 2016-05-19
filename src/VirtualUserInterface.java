@@ -36,8 +36,6 @@ public class VirtualUserInterface extends UIBase implements ActionListener {
 
         ImageIcon icon = new ImageIcon("/home/romanav/IdeaProjects/Coffee Machine/images/control.jpg");
         JLabel label = new JLabel(icon);
-
-
         contentPane.add(label);
 
         Box box = Box.createVerticalBox();
