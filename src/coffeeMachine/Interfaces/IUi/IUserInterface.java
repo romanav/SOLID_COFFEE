@@ -8,7 +8,7 @@ import java.util.List;
 public interface IUserInterface extends IPollable {
 
 
-    void addComponent(ISwitchable boiler);
+    void addComponent(ISwitchable component);
 
     List<ISwitchable> getComponents();
 }

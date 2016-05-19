@@ -1,19 +1,27 @@
-import coffeeMachine.UIBase;
+import coffeeMachine.ContainmentBase;
+import coffeeMachine.Interfaces.IHotWaterSource.IWaterFlowControl;
+
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class VirtualVessel extends UIBase implements ActionListener {
+public class VirtualVessel extends ContainmentBase implements ActionListener {
 
 
-    private final JLabel label;
+    private JLabel label;
     private JPanel contentPane;
     private JButton buttonCancel;
     private MultiWindowDialog dialog;
 
-    public VirtualVessel() {
+    public VirtualVessel(IWaterFlowControl flowControl) {
+        super(flowControl);
+        generateObjects();
+        addObjectsToPane();
+    }
+
+    private JLabel generateObjects() {
         dialog = new MultiWindowDialog();
         contentPane = new JPanel(new GridLayout(0, 1));
         buttonCancel = new JButton("Exit");
@@ -25,9 +33,7 @@ public class VirtualVessel extends UIBase implements ActionListener {
 
         ImageIcon icon = new ImageIcon("/home/romanav/IdeaProjects/Coffee Machine/images/plot.jpg");
         label = new JLabel(icon);
-
-        addObjectsToPane();
-
+        return label;
     }
 
     private void addObjectsToPane() {

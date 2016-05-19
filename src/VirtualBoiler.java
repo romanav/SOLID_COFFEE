@@ -1,11 +1,12 @@
-import coffeeMachine.UIBase;
+import coffeeMachine.BoilerBase;
+
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class VirtualBoiler extends UIBase implements ActionListener {
+public class VirtualBoiler extends BoilerBase implements ActionListener {
 
 
     private JPanel contentPane;

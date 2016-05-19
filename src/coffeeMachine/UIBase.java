@@ -34,8 +34,8 @@ public class UIBase implements IUserInterface {
     }
 
     @Override
-    public void addComponent(ISwitchable boiler) {
-        components.add(boiler);
+    public void addComponent(ISwitchable component) {
+        components.add(component);
     }
 
     public List<ISwitchable> getComponents() {
