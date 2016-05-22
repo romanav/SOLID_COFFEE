@@ -7,7 +7,7 @@ import java.awt.event.ActionListener;
 
 public class VirtualUserInterface extends UIBase implements ActionListener {
 
-    private final JLabel label;
+    private JLabel label;
     private JPanel contentPane;
     private JButton buttonCancel;
     private JRadioButton turnOnRadioButton;
@@ -17,16 +17,15 @@ public class VirtualUserInterface extends UIBase implements ActionListener {
 
     public VirtualUserInterface() {
 
-        label = generateObjects();
+        generateObjects();
 
         addObjectsToPane();
-        configureRadioButtons();
         configureListeners();
-
+        configureRadioButtons();
+        actionPerformed(null);
     }
 
-    private JLabel generateObjects() {
-        JLabel label;
+    private void generateObjects() {
         dialog = new MultiWindowDialog();
         contentPane = new JPanel(new GridLayout(0, 1));
 
@@ -44,7 +43,6 @@ public class VirtualUserInterface extends UIBase implements ActionListener {
 
         ImageIcon icon = new ImageIcon("/home/romanav/IdeaProjects/Coffee Machine/images/control.jpg");
         label = new JLabel(icon);
-        return label;
     }
 
 
@@ -55,10 +53,15 @@ public class VirtualUserInterface extends UIBase implements ActionListener {
 
 
     public void actionPerformed(ActionEvent actionEvent) {
-        if (turnOnRadioButton.isSelected())
+        if (turnOnRadioButton.isSelected()) {
             statusField.setValue("Working...");
-        else
+            statusField.setBackground(Color.RED);
+            startAll();
+        } else {
             statusField.setValue("Switched Off...");
+            statusField.setBackground(Color.BLACK);
+            stopAll();
+        }
     }
 
 
@@ -78,6 +81,10 @@ public class VirtualUserInterface extends UIBase implements ActionListener {
         group.add(turnOffRadioButton);
         group.add(turnOnRadioButton);
         turnOffRadioButton.setSelected(true);
+    }
+
+    public boolean isVisible(){
+        return dialog.isShowing();
     }
 
 

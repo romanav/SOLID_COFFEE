@@ -14,6 +14,7 @@ public class VirtualVessel extends ContainmentBase implements ActionListener {
     private JPanel contentPane;
     private JButton buttonCancel;
     private MultiWindowDialog dialog;
+    private JFormattedTextField statusField;
 
     public VirtualVessel(IWaterFlowControl flowControl) {
         super(flowControl);
@@ -21,7 +22,7 @@ public class VirtualVessel extends ContainmentBase implements ActionListener {
         addObjectsToPane();
     }
 
-    private JLabel generateObjects() {
+    private void generateObjects() {
         dialog = new MultiWindowDialog();
         contentPane = new JPanel(new GridLayout(0, 1));
         buttonCancel = new JButton("Exit");
@@ -33,12 +34,23 @@ public class VirtualVessel extends ContainmentBase implements ActionListener {
 
         ImageIcon icon = new ImageIcon("/home/romanav/IdeaProjects/Coffee Machine/images/plot.jpg");
         label = new JLabel(icon);
-        return label;
+        statusField = new JFormattedTextField();
+    }
+
+
+    @Override
+    public void poll() {
+        super.poll();
+        if (isOn())
+            statusField.setBackground(Color.RED);
+        else
+            statusField.setBackground(Color.black);
     }
 
     private void addObjectsToPane() {
         Box box = Box.createVerticalBox();
         box.add(label);
+        box.add(statusField);
         box.add(buttonCancel);
         contentPane.add(box);
         dialog.add(contentPane);

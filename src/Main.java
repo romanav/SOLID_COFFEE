@@ -13,10 +13,15 @@ public class Main {
         boiler.showUI();
         vessel.showUI();
 
-        while (true) {
+        while (ui.isVisible()) {
             ui.poll();
             boiler.poll();
             vessel.poll();
+            try {
+                Thread.sleep(100);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
 
 
