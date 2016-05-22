@@ -13,7 +13,8 @@ public class VirtualBoiler extends BoilerBase implements ActionListener {
     private JButton buttonCancel;
     private MultiWindowDialog dialog;
     private JLabel label;
-    private JFormattedTextField statusField;
+    private JFormattedTextField onOffStatusField;
+    private JFormattedTextField waterFlowField;
 
     public VirtualBoiler() {
         createUiObjects();
@@ -24,9 +25,15 @@ public class VirtualBoiler extends BoilerBase implements ActionListener {
     public void poll() {
         super.poll();
         if (isOn())
-            statusField.setBackground(Color.RED);
+            onOffStatusField.setBackground(Color.RED);
         else
-            statusField.setBackground(Color.BLACK);
+            onOffStatusField.setBackground(Color.BLACK);
+
+        if( isWaterFlowing())
+            waterFlowField.setValue("Water Flowing");
+        else
+            waterFlowField.setValue("Water Closed");
+
     }
 
     private void createUiObjects() {
@@ -42,13 +49,15 @@ public class VirtualBoiler extends BoilerBase implements ActionListener {
         ImageIcon icon = new ImageIcon("/home/romanav/IdeaProjects/Coffee Machine/images/boiler.jpg");
         label = new JLabel(icon);
 
-        statusField = new JFormattedTextField();
+        onOffStatusField = new JFormattedTextField();
+        waterFlowField = new JFormattedTextField();
     }
 
     private void addObjectsToPane() {
         Box box = Box.createVerticalBox();
         box.add(label);
-        box.add(statusField);
+        box.add(onOffStatusField);
+        box.add(waterFlowField);
         box.add(buttonCancel);
         contentPane.add(box);
         dialog.add(contentPane);

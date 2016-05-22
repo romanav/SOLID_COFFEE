@@ -15,11 +15,26 @@ public class VirtualVessel extends ContainmentBase implements ActionListener {
     private JButton buttonCancel;
     private MultiWindowDialog dialog;
     private JFormattedTextField statusField;
+    private JRadioButton takeVesselRadioButton;
+    private JRadioButton putVesselRadioButton;
 
     public VirtualVessel(IWaterFlowControl flowControl) {
         super(flowControl);
         generateObjects();
         addObjectsToPane();
+        configureRadioButtons();
+
+    }
+
+
+    private void configureRadioButtons() {
+        ButtonGroup group = new ButtonGroup();
+        group.add(takeVesselRadioButton);
+        group.add(putVesselRadioButton);
+        putVesselRadioButton.setSelected(true);
+
+        takeVesselRadioButton.addActionListener(this);
+        putVesselRadioButton.addActionListener(this);
     }
 
     private void generateObjects() {
@@ -35,6 +50,11 @@ public class VirtualVessel extends ContainmentBase implements ActionListener {
         ImageIcon icon = new ImageIcon("/home/romanav/IdeaProjects/Coffee Machine/images/plot.jpg");
         label = new JLabel(icon);
         statusField = new JFormattedTextField();
+
+
+        takeVesselRadioButton = new JRadioButton("Take vessel");
+        putVesselRadioButton = new JRadioButton("Put Vessel");
+
     }
 
 
@@ -51,6 +71,10 @@ public class VirtualVessel extends ContainmentBase implements ActionListener {
         Box box = Box.createVerticalBox();
         box.add(label);
         box.add(statusField);
+
+        box.add(takeVesselRadioButton);
+        box.add(putVesselRadioButton);
+
         box.add(buttonCancel);
         contentPane.add(box);
         dialog.add(contentPane);
@@ -63,6 +87,9 @@ public class VirtualVessel extends ContainmentBase implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent actionEvent) {
-
+        if (takeVesselRadioButton.isSelected())
+            removeVessel();
+        else
+            removeVessel();
     }
 }
