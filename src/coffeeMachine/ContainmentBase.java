@@ -34,7 +34,8 @@ public class ContainmentBase implements IContainmentVessel {
             flowControl.closeWaterFlow();
         }
 
-
+        if (!isOn())
+            flowControl.closeWaterFlow();
     }
 
 
@@ -66,6 +67,7 @@ public class ContainmentBase implements IContainmentVessel {
     @Override
     public void turnOff() {
         isOnFlag = false;
+        flowControl.closeWaterFlow();
     }
 
     @Override

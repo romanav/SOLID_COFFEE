@@ -23,7 +23,7 @@ public class TestVessel {
     @Test
     public void initialStatus() {
         assertEquals(vessel.isReady(), true);
-        assertEquals(boiler.isWaterFlowing(), true);
+        assertEquals(boiler.isWaterFlowing(), false);
         assertEquals(vessel.isFull(), false);
         assertEquals(vessel.isOn(), false);
     }
@@ -39,6 +39,14 @@ public class TestVessel {
 
     @Test
     public void testWaterFlowStatus() {
+        vessel.turnOn();
+
+        vessel.takeOut();
+        assertEquals(boiler.isWaterFlowing(), false);
+
+        vessel.putIn();
+        assertEquals(boiler.isWaterFlowing(), true);
+
         vessel.takeOut();
         assertEquals(boiler.isWaterFlowing(), false);
 
@@ -48,6 +56,8 @@ public class TestVessel {
 
     @Test
     public void isFullTest() {
+        vessel.turnOn();
+
         vessel.setFull();
         assertEquals(boiler.isWaterFlowing(), false);
 
@@ -67,6 +77,21 @@ public class TestVessel {
 
         v.turnOff();
         assertEquals(v.isOn(), false);
+    }
+
+
+    @Test
+    public void waterOffWhenPowerOff() {
+        assertEquals(vessel.isOn(), false);
+        assertEquals(boiler.isWaterFlowing(), false);
+
+        vessel.turnOn();
+        vessel.poll();
+        assertEquals(boiler.isWaterFlowing(), true);
+
+        vessel.turnOff();
+        vessel.poll();
+        assertEquals(boiler.isWaterFlowing(), false);
     }
 
 }

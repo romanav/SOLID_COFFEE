@@ -90,6 +90,6 @@ public class VirtualVessel extends ContainmentBase implements ActionListener {
         if (takeVesselRadioButton.isSelected())
             removeVessel();
         else
-            removeVessel();
+            insertVessel();
     }
 }
