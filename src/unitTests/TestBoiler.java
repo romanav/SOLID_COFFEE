@@ -68,12 +68,22 @@ public class TestBoiler {
     public void stopBoilingOnTemperature() {
         setLimitTemperatures();
         boiler.turnOn();
+        boiler.openWaterFlow();
 
         assertTemperatureBoilingStatus(70, true);
+        assertEquals(boiler.isWaterFlowing(), false);
+
         assertTemperatureBoilingStatus(80, true);
+        assertEquals(boiler.isWaterFlowing(), true);
+
         assertTemperatureBoilingStatus(91, false);
+        assertEquals(boiler.isWaterFlowing(), false);
+
         assertTemperatureBoilingStatus(85, false);
+        assertEquals(boiler.isWaterFlowing(), true);
+
         assertTemperatureBoilingStatus(70, true);
+        assertEquals(boiler.isWaterFlowing(), false);
     }
 
     private void assertTemperatureBoilingStatus(int temperature, boolean isBoiling) {
@@ -85,6 +95,5 @@ public class TestBoiler {
         boiler.setMinimumTemperature(80);
         boiler.setMaximumTemperature(90);
     }
-
 
 }

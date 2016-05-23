@@ -45,9 +45,10 @@ public class BoilerBase implements IHotWaterSource {
         return isBoiling;
     }
 
+
     @Override
     public int getTemperature() {
-        return 0;
+        return temperature;
     }
 
     @Override
@@ -91,7 +92,11 @@ public class BoilerBase implements IHotWaterSource {
 
     @Override
     public boolean isWaterFlowing() {
-        return isWaterFlowOpen;
+        return isWaterFlowOpen && isCoffeeMakingTemperature();
+    }
+
+    private boolean isCoffeeMakingTemperature() {
+        return getMinimumTemperature() <= temperature && temperature <= getMaximumTemperature();
     }
 
 

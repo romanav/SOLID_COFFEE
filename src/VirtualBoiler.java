@@ -2,11 +2,15 @@ import coffeeMachine.BoilerBase;
 
 
 import javax.swing.*;
+import javax.swing.event.AncestorEvent;
+import javax.swing.event.AncestorListener;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class VirtualBoiler extends BoilerBase implements ActionListener {
+public class VirtualBoiler extends BoilerBase implements ActionListener, ChangeListener {
 
 
     private JPanel contentPane;
@@ -14,11 +18,15 @@ public class VirtualBoiler extends BoilerBase implements ActionListener {
     private MultiWindowDialog dialog;
     private JLabel label;
     private JFormattedTextField onOffStatusField;
-    private JFormattedTextField waterFlowField;
+    private JSlider temperatureSlider;
+    private JLabel bowlingLabel;
 
     public VirtualBoiler() {
         createUiObjects();
         addObjectsToPane();
+
+        setMaximumTemperature(90);
+        setMinimumTemperature(60);
     }
 
     @Override
@@ -29,10 +37,11 @@ public class VirtualBoiler extends BoilerBase implements ActionListener {
         else
             onOffStatusField.setBackground(Color.BLACK);
 
-        if( isWaterFlowing())
-            waterFlowField.setValue("Water Flowing");
+
+        if (isWaterFlowing())
+            bowlingLabel.setText("Water open");
         else
-            waterFlowField.setValue("Water Closed");
+            bowlingLabel.setText("Water closed");
 
     }
 
@@ -50,17 +59,37 @@ public class VirtualBoiler extends BoilerBase implements ActionListener {
         label = new JLabel(icon);
 
         onOffStatusField = new JFormattedTextField();
-        waterFlowField = new JFormattedTextField();
+
+        bowlingLabel = new JLabel();
+
+        configureTemperatureSliderObject();
+    }
+
+    private void configureTemperatureSliderObject() {
+        temperatureSlider = new JSlider(JSlider.HORIZONTAL, 0, 100, 1);
+        temperatureSlider.setPaintTicks(true);
+        temperatureSlider.setPaintLabels(true);
+        temperatureSlider.setLabelTable(temperatureSlider.createStandardLabels(10));
+        temperatureSlider.addChangeListener(this);
     }
 
     private void addObjectsToPane() {
         Box box = Box.createVerticalBox();
         box.add(label);
         box.add(onOffStatusField);
-        box.add(waterFlowField);
+        box.add(bowlingLabel);
+        box.add(getSliderBox());
         box.add(buttonCancel);
         contentPane.add(box);
         dialog.add(contentPane);
+    }
+
+    private Component getSliderBox() {
+        Box p = Box.createHorizontalBox();
+        p.add(new Label("Temperature"));
+        p.add(temperatureSlider);
+        p.add(Box.createHorizontalGlue());
+        return p;
     }
 
     public void showUI() {
@@ -72,4 +101,11 @@ public class VirtualBoiler extends BoilerBase implements ActionListener {
     public void actionPerformed(ActionEvent actionEvent) {
 
     }
+
+    @Override
+    public void stateChanged(ChangeEvent changeEvent) {
+        this.temperature = temperatureSlider.getValue();
+    }
+
+
 }
