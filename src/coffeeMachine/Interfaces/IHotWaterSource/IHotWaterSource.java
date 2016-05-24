@@ -5,5 +5,7 @@ import coffeeMachine.Interfaces.ISwitchable;
 
 public interface IHotWaterSource extends IHotWaterSourceTemperatureControl, IWaterFlowControl, ISwitchable, IPollable {
 
+    boolean isBoiling();
 
+    int waterPersentageInSource();
 }

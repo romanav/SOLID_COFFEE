@@ -7,6 +7,4 @@ public interface IWaterFlowControl {
     void closeWaterFlow();
 
     boolean isWaterFlowing();
-
-    int waterPersentageInSource();
 }

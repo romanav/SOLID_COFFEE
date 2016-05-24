@@ -2,15 +2,13 @@ import coffeeMachine.BoilerBase;
 
 
 import javax.swing.*;
-import javax.swing.event.AncestorEvent;
-import javax.swing.event.AncestorListener;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class VirtualBoiler extends BoilerBase implements ActionListener, ChangeListener {
+public class VirtualBoiler extends BoilerBase implements ChangeListener {
 
 
     private JPanel contentPane;
@@ -55,7 +53,7 @@ public class VirtualBoiler extends BoilerBase implements ActionListener, ChangeL
             }
         });
 
-        ImageIcon icon = new ImageIcon("/home/romanav/IdeaProjects/Coffee Machine/images/boiler.jpg");
+        ImageIcon icon = new ImageIcon("./images/boiler.jpg");
         label = new JLabel(icon);
 
         onOffStatusField = new JFormattedTextField();
@@ -80,6 +78,7 @@ public class VirtualBoiler extends BoilerBase implements ActionListener, ChangeL
         box.add(bowlingLabel);
         box.add(getSliderBox());
         box.add(buttonCancel);
+
         contentPane.add(box);
         dialog.add(contentPane);
     }
@@ -96,11 +95,6 @@ public class VirtualBoiler extends BoilerBase implements ActionListener, ChangeL
         dialog.showDialog();
     }
 
-
-    @Override
-    public void actionPerformed(ActionEvent actionEvent) {
-
-    }
 
     @Override
     public void stateChanged(ChangeEvent changeEvent) {

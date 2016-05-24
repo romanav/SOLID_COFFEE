@@ -41,7 +41,7 @@ public class VirtualUserInterface extends UIBase implements ActionListener {
 
         statusField = new JFormattedTextField();
 
-        ImageIcon icon = new ImageIcon("/home/romanav/IdeaProjects/Coffee Machine/images/control.jpg");
+        ImageIcon icon = new ImageIcon("./images/control.jpg");
         label = new JLabel(icon);
     }
 

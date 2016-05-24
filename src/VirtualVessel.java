@@ -23,7 +23,6 @@ public class VirtualVessel extends ContainmentBase implements ActionListener {
         generateObjects();
         addObjectsToPane();
         configureRadioButtons();
-
     }
 
 
@@ -47,16 +46,14 @@ public class VirtualVessel extends ContainmentBase implements ActionListener {
             }
         });
 
-        ImageIcon icon = new ImageIcon("/home/romanav/IdeaProjects/Coffee Machine/images/plot.jpg");
+        ImageIcon icon = new ImageIcon("./images/plot.jpg");
         label = new JLabel(icon);
+
         statusField = new JFormattedTextField();
-
-
         takeVesselRadioButton = new JRadioButton("Take vessel");
         putVesselRadioButton = new JRadioButton("Put Vessel");
 
     }
-
 
     @Override
     public void poll() {

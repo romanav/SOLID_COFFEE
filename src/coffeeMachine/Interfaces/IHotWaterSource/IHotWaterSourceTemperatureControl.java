@@ -3,9 +3,6 @@ package coffeeMachine.Interfaces.IHotWaterSource;
 
 public interface IHotWaterSourceTemperatureControl {
 
-
-    boolean isBoiling();
-
     int getTemperature();
 
     void setMinimumTemperature(int i);
