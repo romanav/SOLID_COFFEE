@@ -7,7 +7,7 @@ public class BoilerBase implements IHotWaterSource {
 
     private boolean isOn = false;
     private boolean isWaterFlowOpen = false;
-    protected int temperature;
+    private int temperature;
     private int minTemperature = 0;
     private int maxTemperature = 100;
     private boolean isBoiling = false;
@@ -51,10 +51,10 @@ public class BoilerBase implements IHotWaterSource {
         return temperature;
     }
 
+
     @Override
     public void setMinimumTemperature(int temp) {
         minTemperature = temp;
-
     }
 
     @Override
@@ -119,5 +119,10 @@ public class BoilerBase implements IHotWaterSource {
             }
         } else
             stopBoiling();
+    }
+
+    public void setTemperature(int temp) {
+        temperature = temp;
+
     }
 }

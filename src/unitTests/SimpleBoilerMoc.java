@@ -6,11 +6,9 @@ import coffeeMachine.BoilerBase;
 
 public class SimpleBoilerMoc extends BoilerBase {
 
-
-    public void setTemperature(int temperature) {
-        this.temperature = temperature;
-        this.poll();
+    @Override
+    public void setTemperature(int temp) {
+        super.setTemperature(temp);
+        poll();
     }
-
-
 }

@@ -98,7 +98,7 @@ public class VirtualBoiler extends BoilerBase implements ChangeListener {
 
     @Override
     public void stateChanged(ChangeEvent changeEvent) {
-        this.temperature = temperatureSlider.getValue();
+        this.setTemperature(temperatureSlider.getValue());
     }
 
 
